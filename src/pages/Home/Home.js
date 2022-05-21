@@ -4,7 +4,7 @@ import WeProvide from './WeProvide';
 
 const Home = () => {
     return (
-        <main className='container mx-auto px-3'>
+        <main className='container mx-auto'>
             <Landing/>
             <WeProvide></WeProvide>
         </main>

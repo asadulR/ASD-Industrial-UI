@@ -25,7 +25,7 @@ const Navbar = () => {
                             <li><a>Item 3</a></li>
                         </ul>
                     </div>
-                    <Link to='/' class="btn btn-ghost  text-secondary font-bold normal-case text-xl">ASD Industrial</Link>
+                    <Link to='/' class="btn btn-ghost  text-primary font-bold normal-case text-xl" style={{fontFamily: 'Courgette,cursive'}}>ASD Industrial</Link>
                 </div>
                 <div class="navbar-center hidden lg:flex">
                     <ul class="menu menu-horizontal p-0">
