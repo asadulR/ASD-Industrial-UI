@@ -13,7 +13,7 @@ const Product = ({ product }) => {
                 </div>
                 <h2 class=" text-xl text-base-100 mb-2 font-bold">{name}</h2>
                 <small className='flex justify-evenly text-white'><span>Quantity: <span className='text-secondary font-bold'>{availableQuantity}</span></span> <span>Price: <span className='text-secondary font-bold'>${price}</span></span> <span>MOQ: <span className='text-secondary font-bold'>{minOrderQ}</span></span></small>
-                <p class='text-base-100 font-normal text-left'>We manufacture a large number of Fuel Pump Nozell yearly. We are the most popular manufacturer conpany for this machine.</p>
+                <p class='text-base-100 font-normal text-left'>{description}</p>
                 <button className='btn btn-secondary mt-5'>Buy Now</button>
             </div>
         </div>
