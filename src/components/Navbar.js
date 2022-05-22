@@ -25,11 +25,11 @@ const Navbar = () => {
                             <li><a>Item 3</a></li>
                         </ul>
                     </div>
-                    <Link to='/' class="btn btn-ghost  text-primary font-bold normal-case text-xl" style={{fontFamily: 'Courgette,cursive'}}>ASD Industrial</Link>
+                    <Link to='/' class="btn btn-ghost  text-primary font-bold normal-case text-xl" style={{ fontFamily: 'Courgette,cursive' }}>ASD Industrial</Link>
                 </div>
                 <div class="navbar-center hidden lg:flex">
                     <ul class="menu menu-horizontal p-0">
-                    <li><NavLink to='/' className=' font-semibold'>Home</NavLink></li>
+                        <li><NavLink to='/' className=' font-semibold'>Home</NavLink></li>
                         <li tabindex="0">
                             <a>
                                 Parent
@@ -44,7 +44,7 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div class="navbar-end">
-                    <a class="btn">Get started</a>
+                <NavLink to='/' className=' font-bold btn btn-ghost'>Log In</NavLink>
                 </div>
             </div>
         </div>

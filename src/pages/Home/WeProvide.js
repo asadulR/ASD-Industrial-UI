@@ -4,14 +4,14 @@ import bg from '../../assets/Images/bg.jpg';
 import { FaTools, FaCloudSun, FaGasPump,FaRegGem } from "react-icons/fa";
 const WeProvide = () => {
     return (
-        <section className='py-10' style={{
+        <section className='py-10 md:py-28' style={{
             backgroundImage: `url(${bg})`,
             backgroundRepeat: 'no-repeat',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
 
         }}>
-            <h2 className=' text-3xl text-center md:text-5xl font-bold max-w-xl mx-auto text-secondary mb-20' style={{fontFamily: 'Courgette,cursive'}}>We Manufacture Best Machine
+            <h2 className=' text-3xl text-center md:text-5xl font-bold max-w-xl mx-auto text-base-100 mb-20' style={{fontFamily: 'Courgette,cursive'}}>We Manufacture Best Machine
                 For Industries</h2>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 px-2'>
                 <div class="card shadow-xl bg-primary transition ease-in-out delay-100 hover:-translate-y-2 hover:bg-info duration-500">

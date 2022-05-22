@@ -1,0 +1,50 @@
+[
+    {
+        "name": "Drilling Machine",
+        "img": "https://i.ibb.co/SKwvV6d/use-hammer-drill.webp",
+        "description": "Drilling Machine is a portable machine used for drilling on anything. Anything can be drilled esylly with this tool. It can be used for 8 to 12 hours nonstop.",
+        "minOrderQ": 50,
+        "availableQuantity": 4500,
+        "price": 5000
+    },
+    {
+        "name": "Solar Power",
+        "img": "https://i.ibb.co/jrWGFPJ/solar-power.jpg",
+        "description": "Solar power machine is so useful for now a days. It generate power from the sun and store that power in a battery. It can be a great thing for your house lighting.",
+        "minOrderQ": 50,
+        "availableQuantity": 900,
+        "price": 20200
+    },
+    {
+        "name": "Portable Generator",
+        "img": "https://i.ibb.co/qjbq2Md/gasoline-portable-generator.jpg                                                                                                                                                                                                                         ",
+        "description": "Portable Generator can be alternative machine of solar power. Portable Generator also can give you energy and you can use it in your daily life. It can work nonstoply.",
+        "minOrderQ": 50,
+        "availableQuantity": 3500,
+        "price": 12200
+    },
+    {
+        "name": "Kitchen Stove",
+        "img": "https://i.ibb.co/XYtSh2d/kitchen-stove-146936-766.jpg",
+        "description": "Kitchen Stove is a great this for your house. It burns your food and make it easy for you. It's so easy to use and It works properly 24/ 7 ",
+        "minOrderQ": 50,
+        "availableQuantity": 6400,
+        "price": 8200
+    },
+    {
+        "name": "Fuel Nozell",
+        "img": "https://i.ibb.co/6bbSZCK/fuel-pap-nozell.jpg",
+        "description": "Fuel Nozell is used in gas station. It is used to tnasfer gas from gas station to the car. This is highly recomended product and it has a 5 star review.",
+        "minOrderQ": 50,
+        "availableQuantity": 3500,
+        "price": 6600
+    },
+    {
+        "name": "WoodCuttor",
+        "img": "https://i.ibb.co/PrPxq2Z/woodcutter.jpg",
+        "description": "WoodCuttor Machine is a portable machine used for cutting wood. Any tree chould be cut esylly with this tool. It can be used for 8 to 12 hours nonstop.",
+        "minOrderQ": 50,
+        "availableQuantity": 12000,
+        "price": 9800
+    }
+]
