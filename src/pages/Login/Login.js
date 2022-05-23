@@ -31,7 +31,7 @@ const Login = () => {
             // console.log(user || guser);
             navigate(from, { replace: true });
         }
-    }, [from, navigate])
+    }, [from, navigate, guser, user])
 
     if (loading || gloading) {
         return <Loading />
@@ -87,12 +87,12 @@ const Login = () => {
                             </label>
                         </div>
                         <div className="form-control mt-6">
-                            <input className='btn btn-secondary' type="submit" value='Login' />
+                            <input className='btn btn-primary' type="submit" value='Login' />
                         </div>
                     </form>
                     {signInErrorMessage}
                     <div className="divider">OR</div>
-                    <button onClick={() => signInWithGoogle()} className='btn btn-glass hover:btn-accent'>Continue with google</button>
+                    <button onClick={() => signInWithGoogle()} className='btn  btn-primary'>Continue with google</button>
                 </div>
             </div>
         </section>
