@@ -1,10 +1,16 @@
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { useForm } from 'react-hook-form';
+import toast, { Toaster } from 'react-hot-toast';
 import { useQuery } from 'react-query';
 import { useParams } from 'react-router-dom';
+import auth from '../../components/Auth/firebase.init';
 import Loading from '../../components/Loading/Loading';
 
 const Purchase = () => {
+    const [user] = useAuthState(auth)
     const { productId } = useParams();
+    const { register, formState: { errors }, handleSubmit, reset } = useForm();
 
 
     const { isLoading, error, data: product, refetch } = useQuery(['available'], () =>
@@ -15,8 +21,53 @@ const Purchase = () => {
     if (isLoading) return <Loading />
     if (error) return 'An error has occurred: ' + error.message;
     const { img, name, availableQuantity, description, _id, minOrderQ, price } = product;
+
+
+
+
+    const min = 10
+
+    // 
+
+    const onSubmit = data => {
+        data.productName = name;
+        data.productId = _id
+        data.status = 'Pending'
+
+
+        //  adding my item to all items collection
+        const addToCardUrl = `http://localhost:4000/cardItem`;
+
+
+        fetch(addToCardUrl, {
+            method: 'POST',
+            headers: {
+                // 'authoraization': `${user.email} ${localStorage.getItem("accessToken")}`,
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+            .then(res => res.json())
+            .then(result => {
+                toast.success("Product Added to Card!");
+            })
+
+
+
+
+
+        reset();
+    };
+
+    let orderError;
+
+
+    if (error) {
+        orderError = <p className='text-red-700 m-0'><small>{error?.message}</small></p>
+    }
+
     return (
-        <section className='my-20 md:my-32 container mx-auto'>
+        <section className=' bg-accent py-20 md:py-32 container mx-auto'>
             <h2 className='text-2xl md:text-4xl font-extrabold text-primary my-10 text-center'>Add <span className='text-secondary'>{name}</span> to <br /> your order list</h2>
             <div className="grid px-3 grid-cols-1 md:grid-cols-2 items-center gap-6">
                 <div><img className='rounded-lg' src={img} alt="" /></div>
@@ -28,6 +79,93 @@ const Purchase = () => {
                     <p className='mt-3'>{description}</p>
                 </div>
             </div>
+
+
+            <div className='flex bg-accent px-2 justify-center items-center'>
+                <div className="card flex-shrink-0 mt-20 md:mt-28 mb-4 w-full max-w-xl shadow-2xl bg-base-100 ">
+                    <div className="card-body">
+                        <h1 className=' text-2xl text-center font-bold text-primary mb-6'>Provide some information</h1>
+                        <form onSubmit={handleSubmit(onSubmit)}>
+                            <div className="form-control">
+                                <input type="email" value={user?.email} readOnly className="input input-bordered mb-5"
+                                    {...register("buyerEmail")}
+                                />
+                            </div>
+                            <div className="form-control">
+                                <input type="email" value={user?.email} readOnly className="input input-bordered mb-5"
+                                    {...register("buyerEmail")}
+                                />
+                            </div>
+                            <div className="form-control">
+                                <input type="text" value={user?.displayName} readOnly className="input input-bordered mb-5"
+                                    {...register("buyerName")}
+                                />
+
+                            </div>
+                            <div className="form-control">
+                                <input type="number" placeholder='Enter your phone number' className="input input-bordered"
+                                    {...register("phoneNumber", {
+                                        required: {
+                                            value: true,
+                                            message: "Number is Required"
+                                        },
+                                        minLength: {
+                                            value: 11,
+                                            message: `Invalid number!`
+                                        }
+                                    })}
+                                />
+                                <label className="label">
+                                    {errors.phoneNumber?.type === 'required' && <span className="label-text-alt text-red-700">{errors.phoneNumber.message}</span>}
+                                    {errors.phoneNumber?.type === 'minLength' && <span className="label-text-alt text-red-700">{errors.phoneNumber.message}</span>}
+                                </label>
+                            </div>
+                            <div className="form-control">
+                                <input type="text" placeholder="Enter your address" className="input input-bordered"
+                                    {...register("address", {
+                                        required: {
+                                            value: true,
+                                            message: "Address is Required"
+                                        }
+                                    })}
+                                />
+                                <label className="label">
+                                    {errors.address?.type === 'required' && <span className="label-text-alt text-red-700">{errors.address.message}</span>}
+                                </label>
+                            </div>
+                            <div className="form-control">
+                                <input type="number" placeholder='Order Quantity' className="input input-bordered"
+                                    {...register("orderQuantity", {
+                                        required: {
+                                            value: true,
+                                            message: "Order quantity is Required"
+                                        },
+                                        min: {
+                                            value: minOrderQ,
+                                            message: `Min order quantity is ${minOrderQ}`
+                                        },
+                                        max: {
+                                            value: availableQuantity,
+                                            message: "Order quantity can't be longer than available quantity"
+                                        }
+                                    })}
+                                />
+                                <label className="label">
+                                    {errors.orderQuantity?.type === 'required' && <span className="label-text-alt text-red-700">{errors.orderQuantity.message}</span>}
+                                    {errors.orderQuantity?.type === 'min' && <span className="label-text-alt text-red-700">{errors.orderQuantity.message}</span>}
+                                    {errors.orderQuantity?.type === 'max' && <span className="label-text-alt text-red-700">{errors.orderQuantity.message}</span>}
+                                </label>
+                            </div>
+                            <div className="form-control mt-6">
+                                <input className='btn btn-primary' type="submit" value='Login' />
+                            </div>
+                        </form>
+                        {orderError}
+                        <div className="divider">OR</div>
+                    </div>
+                </div>
+            </div>
+            <Toaster />
         </section>
     );
 };
