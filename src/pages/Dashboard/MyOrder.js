@@ -40,6 +40,8 @@ const MyOrder = () => {
                             orders?.map(order => <OrderRow
                             key={order._id}
                             order={order}
+                            orders={orders}
+                            setOrders={setOrders}
                             ></OrderRow>)
                         }
                     </tbody>

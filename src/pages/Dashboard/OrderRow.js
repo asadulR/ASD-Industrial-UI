@@ -1,8 +1,32 @@
 import React from 'react';
+import toast, { Toaster } from 'react-hot-toast';
 
-const OrderRow = ({ order }) => {
+const OrderRow = ({ order, setOrders, orders }) => {
     const { _id, orderQuantity, status, singleItemPrice, productName, img } = order;
 
+    //  handle card item delete
+    const handleDelete = (_id) => {
+        //  deleting inventory from allitems collection
+        const proceed = window.confirm('Are you sure deleting your order?')
+
+        if (proceed) {
+            //  deleting order from card collection
+            const myItemDeleteUrl = `http://localhost:4000/delete-myitems/${_id}`;
+            // console.log(myItemDeleteUrl)
+            fetch(myItemDeleteUrl, {
+                method: 'DELETE',
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+                    const remainingOrder = orders.filter(order => order._id !== _id);
+
+                    setOrders(remainingOrder);
+                    toast.success('Order Deleted');
+                })
+        }
+
+    }
     return (
         <tr>
             <td>
@@ -27,13 +51,14 @@ const OrderRow = ({ order }) => {
                     order?.status === 'Pending' &&
                     <>
                         <button className='btn btn-success text-white btn-sm  mr-3'>Payment</button>
-                        <button className='btn btn-error btn-sm'>Delete</button>
+                        <button onClick={() => handleDelete(_id)} className='btn btn-error btn-sm'>Delete</button>
                     </>
                 }
                 {
                     order?.status === 'Paid' && <span className='font-semibold text-success'>Paid</span>
                 }
             </td>
+            <Toaster />
         </tr>
     );
 };
