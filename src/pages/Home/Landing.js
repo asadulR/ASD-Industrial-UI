@@ -2,7 +2,7 @@ import React from 'react';
 import landing from '../../assets/Images/home-banner.jpg';
 const Landing = () => {
     return (
-        <section className='mt-6 md:mt-0'>
+        <section className=''>
             <div class="hero min-h-screen bg-base-100">
                 <div class="hero-content grid grid-cols-1 md:grid-cols-2 gap-3">
                     <div className=''>

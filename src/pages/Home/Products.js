@@ -4,12 +4,12 @@ import Loading from '../../components/Loading/Loading';
 import Product from './Product';
 
 const Products = () => {
-    const { isLoading, error, data: products, refetch } = useQuery(['available'], () =>
+    const { isLoading, error, data, refetch } = useQuery('available', () =>
         fetch(`http://localhost:4000/product`).then(res =>
             res.json()
         )
     )
-
+    console.log(data)
     if (isLoading) return <Loading />
 
     if (error) return 'An error has occurred: ' + error.message;
@@ -22,7 +22,8 @@ const Products = () => {
             {/* {error} */}
             <div className='my-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 px-2'>
                 {
-                    products.map(product => <Product
+                    data?.map(product => <Product
+                        refetch={refetch}
                         key={product._id}
                         product={product}
                     ></Product>)

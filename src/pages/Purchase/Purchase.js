@@ -13,7 +13,7 @@ const Purchase = () => {
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
 
 
-    const { isLoading, error, data: product, refetch } = useQuery(['available'], () =>
+    const { isLoading, error, data: product, refetch } = useQuery('available', () =>
         fetch(`http://localhost:4000/product/${productId}`).then(res =>
             res.json()
         )
@@ -25,17 +25,14 @@ const Purchase = () => {
 
 
 
-    const min = 10
-
     // 
 
     const onSubmit = data => {
         data.productName = name;
-        data.productId = _id
-        data.status = 'Pending'
+        data.productId = _id;
+        data.status = 'Pending';
+        data.singleItemPrice= price;
 
-
-        //  adding my item to all items collection
         const addToCardUrl = `http://localhost:4000/cardItem`;
 
 
@@ -52,11 +49,32 @@ const Purchase = () => {
                 toast.success("Product Added to Card!");
             })
 
+            //  update item
+            const updatedProductQuntity = {availableQuantity: availableQuantity - data.orderQuantity};
+            // console.log(updatedProductQuntity);
 
+            const url = `http://localhost:4000/product/${productId}`
+            fetch(url, {
+                method: 'PUT',
+                headers: {
+                    'Content-type': 'application/json',
+                },
+                body: JSON.stringify(updatedProductQuntity)
+            })
+    
+                .then(res => res.json())
+                .then(data => {
+                    console.log('Success: ', data)
+                    refetch()
+                    // toast.success('Inventory Restocked!');
+                    // alert('Qusntity updated successfully')
+    
+                })
+                .catch((error) => {
+                    console.error("Error: ", error)
+                });
 
-
-
-        reset();
+        reset()        
     };
 
     let orderError;

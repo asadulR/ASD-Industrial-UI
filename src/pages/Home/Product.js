@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const Product = ({ product }) => {
+const Product = ({ product, refetch }) => {
     const { img, name, availableQuantity, description, _id, minOrderQ, price } = product;
     // console.log(product);
     const navigate = useNavigate();
