@@ -14,12 +14,12 @@ const ExpertTeam = () => {
                 autoPlaySpeed={1000}
                 centerMode={false}
                 className="container"
-                containerClass="container-with-dots"
-                dotListClass=""
+                containerclassName="container-with-dots"
+                dotListclassName=""
                 draggable
                 focusOnSelect={false}
                 infinite
-                itemClass=""
+                itemclassName=""
                 keyBoardControl
                 minimumTouchDrag={80}
                 renderButtonGroupOutside={false}
@@ -51,7 +51,7 @@ const ExpertTeam = () => {
                     }
                 }}
                 showDots={false}
-                sliderClass=""
+                sliderclassName=""
                 slidesToSlide={.2}
                 swipeable
             >
