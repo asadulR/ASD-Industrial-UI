@@ -5,6 +5,7 @@ import toast, { Toaster } from 'react-hot-toast';
 import { useQuery } from 'react-query';
 import { useParams } from 'react-router-dom';
 import auth from '../../components/Auth/firebase.init';
+import Footer from '../../components/Footer';
 import Loading from '../../components/Loading/Loading';
 
 const Purchase = () => {
@@ -31,7 +32,7 @@ const Purchase = () => {
         data.productName = name;
         data.productId = _id;
         data.status = 'Pending';
-        data.singleItemPrice= price;
+        data.singleItemPrice = price;
 
         const addToCardUrl = `http://localhost:4000/cardItem`;
 
@@ -49,32 +50,32 @@ const Purchase = () => {
                 toast.success("Product Added to Card!");
             })
 
-            //  update item
-            const updatedProductQuntity = {availableQuantity: availableQuantity - data.orderQuantity};
-            // console.log(updatedProductQuntity);
+        //  update item
+        const updatedProductQuntity = { availableQuantity: availableQuantity - data.orderQuantity };
+        // console.log(updatedProductQuntity);
 
-            const url = `http://localhost:4000/product/${productId}`
-            fetch(url, {
-                method: 'PUT',
-                headers: {
-                    'Content-type': 'application/json',
-                },
-                body: JSON.stringify(updatedProductQuntity)
+        const url = `http://localhost:4000/product/${productId}`
+        fetch(url, {
+            method: 'PUT',
+            headers: {
+                'Content-type': 'application/json',
+            },
+            body: JSON.stringify(updatedProductQuntity)
+        })
+
+            .then(res => res.json())
+            .then(data => {
+                console.log('Success: ', data)
+                refetch()
+                // toast.success('Inventory Restocked!');
+                // alert('Qusntity updated successfully')
+
             })
-    
-                .then(res => res.json())
-                .then(data => {
-                    console.log('Success: ', data)
-                    refetch()
-                    // toast.success('Inventory Restocked!');
-                    // alert('Qusntity updated successfully')
-    
-                })
-                .catch((error) => {
-                    console.error("Error: ", error)
-                });
+            .catch((error) => {
+                console.error("Error: ", error)
+            });
 
-        reset()        
+        reset()
     };
 
     let orderError;
@@ -85,7 +86,7 @@ const Purchase = () => {
     }
 
     return (
-        <section className=' bg-accent py-20 md:py-32 container mx-auto'>
+        <section className=' bg-accent pt-20 md:pt-32 container mx-auto'>
             <h2 className='text-2xl md:text-4xl font-extrabold text-primary my-10 text-center'>Add <span className='text-secondary'>{name}</span> to <br /> your order list</h2>
             <div className="grid px-3 grid-cols-1 md:grid-cols-2 items-center gap-6">
                 <div><img className='rounded-lg' src={img} alt="" /></div>
@@ -95,11 +96,15 @@ const Purchase = () => {
                     <p className='font-semibold text-lg md:text-xl'>Min Order Quantity: {minOrderQ}</p>
                     <p className='font-semibold text-lg md:text-xl'>Price per Quantity: ${price}</p>
                     <p className='mt-3'>{description}</p>
+                    {
+                        (availableQuantity < minOrderQ) && <p className='text-error'>We don't have enough product in stock! Please try another one.</p>
+
+                    }
                 </div>
             </div>
 
 
-            <div className='flex bg-accent px-2 justify-center items-center'>
+            <div className='flex bg-accent px-2 justify-center items-center mb-20'>
                 <div className="card flex-shrink-0 mt-20 md:mt-28 mb-4 w-full max-w-xl shadow-2xl bg-base-100 ">
                     <div className="card-body">
                         <h1 className=' text-2xl text-center font-bold text-primary mb-6'>Provide some information</h1>
@@ -175,15 +180,16 @@ const Purchase = () => {
                                 </label>
                             </div>
                             <div className="form-control mt-6">
-                                <input className='btn btn-primary' type="submit" value='Login' />
+                                <input className='btn btn-primary' type="submit" value='Add To Card' />
                             </div>
                         </form>
                         {orderError}
-                        <div className="divider">OR</div>
                     </div>
                 </div>
             </div>
             <Toaster />
+
+            <Footer />
         </section>
     );
 };
