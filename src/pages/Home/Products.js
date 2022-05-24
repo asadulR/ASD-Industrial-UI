@@ -1,18 +1,27 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useQuery } from 'react-query';
 import Loading from '../../components/Loading/Loading';
 import Product from './Product';
 
 const Products = () => {
-    const { isLoading, error, data, refetch } = useQuery('available', () =>
-        fetch(`http://localhost:4000/product`).then(res =>
-            res.json()
-        )
-    )
-    console.log(data)
-    if (isLoading) return <Loading />
+    // const { isLoading, error, data, refetch } = useQuery('available', () =>
+    //     fetch(`http://localhost:4000/product`).then(res =>
+    //         res.json()
+    //     )
+    // )
+    const [service, setService] = useState([]);
+    const [loading, isLoading] = useState(false);
+    useEffect( () => {
+        isLoading(true)
+        fetch(`http://localhost:4000/product`)
+        .then(res => res.json())
+        .then(data => setService(data))
+        isLoading(false);
+    },[])
+    console.log(typeof(service))
+    if (loading) return <Loading />
 
-    if (error) return 'An error has occurred: ' + error.message;
+    // if (error) return 'An error has occurred: ' + error.message;
 
     return (
         <section>
@@ -22,8 +31,7 @@ const Products = () => {
             {/* {error} */}
             <div className='my-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 px-2'>
                 {
-                    data?.map(product => <Product
-                        refetch={refetch}
+                    service?.map(product => <Product
                         key={product._id}
                         product={product}
                     ></Product>)
