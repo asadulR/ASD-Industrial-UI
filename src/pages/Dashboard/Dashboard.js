@@ -1,6 +1,6 @@
 import React from 'react';
-import { FaRegHandPointLeft } from "react-icons/fa";
-import { NavLink, Outlet } from 'react-router-dom';
+import { FaRegHandPointLeft, FaShoppingCart, FaSmileBeam, FaUserEdit} from "react-icons/fa";
+import { Link, Outlet } from 'react-router-dom';
 
 const Dashboard = () => {
     return (
@@ -14,11 +14,11 @@ const Dashboard = () => {
                 </div>
                 <div class="drawer-side">
                     <label for="my-drawer-2" class="drawer-overlay"></label>
-                    <ul class="menu py-2 overflow-y-auto  w-48 gap-6 md:w-60 bg-accent text-base-content">
+                    <ul class="menu py-2 overflow-y-auto  w-48 gap-2 md:w-60 bg-slate-800 text-base-content">
                         {/* <!-- Sidebar content here --> */}
-                        <li className='mt-6'><NavLink className='w-full' to='/dashboard'>My Orders</NavLink></li>
-                        <li className=''><NavLink className='w-full' to='/dashboard/add-review'>Add A Review</NavLink></li>
-                        <li className=''><NavLink className='w-full' to='/dashboard/my-profile'>My Profile</NavLink></li>
+                        <li className='mt-6'><Link className='w-full focus:bg-primary font-bold text-white'  to='/dashboard'>My Orders <FaShoppingCart /></Link></li>
+                        <li className=''><Link className='w-full focus:bg-primary font-bold text-white' to='/dashboard/add-review'>Add A Review <FaSmileBeam/></Link></li>
+                        <li className=''><Link className='w-full focus:bg-primary font-bold text-white' to='/dashboard/my-profile'>My Profile <FaUserEdit/></Link></li>
                     </ul>
 
                 </div>

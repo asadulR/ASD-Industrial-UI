@@ -32,6 +32,7 @@ const Purchase = () => {
         data.productName = name;
         data.productId = _id;
         data.status = 'Pending';
+        data.img = img;
         data.singleItemPrice = price;
 
         const addToCardUrl = `http://localhost:4000/cardItem`;
