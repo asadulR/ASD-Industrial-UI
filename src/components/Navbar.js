@@ -19,7 +19,8 @@ const Navbar = () => {
                         <ul tabindex="0" className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                             <li><NavLink to='/'>Home</NavLink></li>
                             <li><NavLink to='/dashboard'>Dashboard</NavLink></li>
-                            <li><a>Item 3</a></li>
+                            <li><NavLink to='/portfolio'>Portfolio</NavLink></li>
+                            <li><NavLink to='/blogs'>Blogs</NavLink></li>
                         </ul>
                     </div>
                     <Link to='/' className="btn btn-ghost  text-primary font-bold normal-case text-xl" style={{ fontFamily: 'Courgette,cursive' }}>ASD Industrial</Link>
@@ -28,7 +29,8 @@ const Navbar = () => {
                     <ul className="menu menu-horizontal gap-2 p-0">
                         <li><NavLink to='/' className=' font-semibold'>Home</NavLink></li>
                         <li><NavLink to='/dashboard'>Dashboard</NavLink></li>
-                        <li><a>Item 3</a></li>
+                        <li><NavLink to='/portfolio'>Portfolio</NavLink></li>
+                        <li><NavLink to='/blogs'>Blogs</NavLink></li>
                     </ul>
                 </div>
                 <div className="navbar-end">

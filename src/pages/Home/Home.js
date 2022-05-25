@@ -1,5 +1,6 @@
 import React from 'react';
 import Footer from '../../components/Footer';
+import BusinessSummary from './BusinessSummary';
 import ExpertTeam from './ExpertTeam';
 import Landing from './Landing';
 import Products from './Products';
@@ -15,6 +16,7 @@ const Home = () => {
             <Products />
             <ExpertTeam />
             <Review />
+            <BusinessSummary />
             <Footer />
         </main>
     );

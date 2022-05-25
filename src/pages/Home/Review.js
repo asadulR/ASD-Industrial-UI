@@ -8,7 +8,10 @@ const Review = () => {
         isLoading(true)
         fetch(`http://localhost:4000/reviews`)
             .then(res => res.json())
-            .then(data => setReviews(data))
+            .then(data => {
+                const slicedReview = data.slice(-3);
+                setReviews(slicedReview)
+            })
         isLoading(false);
     }, [])
     console.log(reviews)
