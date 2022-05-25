@@ -18,7 +18,7 @@ const Products = () => {
         .then(data => setService(data))
         isLoading(false);
     },[])
-    console.log(typeof(service))
+    // console.log(typeof(service))
     if (loading) return <Loading />
 
     // if (error) return 'An error has occurred: ' + error.message;
