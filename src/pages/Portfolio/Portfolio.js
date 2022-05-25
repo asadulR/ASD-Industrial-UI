@@ -4,7 +4,7 @@ import Footer from '../../components/Footer';
 const Portfolio = () => {
     return (
         <section className='bg-base-200'>
-            <div class=" min-h-screen pt-24">
+            <div class=" min-h-screen pt-16 md:pt-24">
                 <div class=" grid grid-cols-1 md:grid-cols-2 gap-6 py-6 items-center">
                     <div className='px-3 md:px-10'>
                         <h1 class="text-2xl text-primary md:text-5xl font-bold">Md. Asadul Rahman</h1>
@@ -18,7 +18,7 @@ const Portfolio = () => {
                         <a className='btn btn-primary' href="https://drive.google.com/file/d/1kyV0QbWckettQFsrvoI0xW6zCTTkzKov/view?usp=sharing" target="_blank" rel="noopener noreferrer">Download Resume</a>
                     </div>
                     <div className=" text-center px-3">
-                        <img src={developer} alt='Avatar' class=" max-w-lg mx-auto rounded-lg shadow-2xl" />
+                        <img src={developer} alt='Avatar' class="mx-auto rounded-lg shadow-2xl" />
                     </div>
                 </div>
             </div>

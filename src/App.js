@@ -10,6 +10,7 @@ import MyProfile from './pages/Dashboard/MyProfile';
 import Home from './pages/Home/Home';
 import Login from './pages/Login/Login';
 import Signup from './pages/Login/Signup';
+import Page404 from './pages/NotFound/Page404';
 import Portfolio from './pages/Portfolio/Portfolio';
 import Purchase from './pages/Purchase/Purchase';
 
@@ -38,6 +39,7 @@ function App() {
         <Route path='/blogs' element={<Blogs />}></Route>
         <Route path='/login' element={<Login />}></Route>
         <Route path='/signup' element={<Signup />}></Route>
+        <Route path='*' element={<Page404 />}></Route>
       </Routes>
     </>
   );
