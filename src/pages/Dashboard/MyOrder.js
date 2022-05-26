@@ -9,7 +9,7 @@ const MyOrder = () => {
     const [isLoading, setLoading] = useState(false);
     const [user] = useAuthState(auth);
     const email = user?.email;
-    const url = `http://localhost:4000/myitems?email=${email}`
+    const url = `https://asd-industrial.herokuapp.com/myitems?email=${email}`
     useEffect( () => {
         setLoading(true)
         fetch(url)

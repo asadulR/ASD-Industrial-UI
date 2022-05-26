@@ -10,7 +10,7 @@ const AddAReview = () => {
 
 
     // const { isLoading, error, data: product, refetch } = useQuery('available', () =>
-    //     fetch(`http://localhost:4000/product/${productId}`).then(res =>
+    //     fetch(`https://asd-industrial.herokuapp.com/product/${productId}`).then(res =>
     //         res.json()
     //     )
     // )
@@ -26,7 +26,7 @@ const AddAReview = () => {
     const onSubmit = data => {
         // console.log(user)
         data.avatar = user?.photoURL
-        const reviewUrl = `http://localhost:4000/add-review`;
+        const reviewUrl = `https://asd-industrial.herokuapp.com/add-review`;
         fetch(reviewUrl, {
             method: 'POST',
             headers: {

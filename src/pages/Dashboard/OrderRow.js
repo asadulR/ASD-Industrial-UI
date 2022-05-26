@@ -9,7 +9,7 @@ const OrderRow = ({ order, setOrders, orders }) => {
     const handleDelete = (_id) => {
         const proceed = window.confirm('Want to cancel your order?')
 
-        const myItemDeleteUrl = `http://localhost:4000/delete-myitems/${_id}`;
+        const myItemDeleteUrl = `https://asd-industrial.herokuapp.com/delete-myitems/${_id}`;
         // console.log(myItemDeleteUrl)
         fetch(myItemDeleteUrl, {
             method: 'DELETE',

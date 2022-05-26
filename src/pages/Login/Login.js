@@ -32,7 +32,7 @@ const Login = () => {
     useEffect(() => {
         if (user || guser) {
             //  generating a tocken for the backend 
-            const url = 'http://localhost:4000/login';
+            const url = 'https://asd-industrial.herokuapp.com/login';
             fetch(url, {
                 method: 'POST',
                 body: JSON.stringify({

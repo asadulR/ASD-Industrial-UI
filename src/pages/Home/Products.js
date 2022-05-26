@@ -5,7 +5,7 @@ import Product from './Product';
 
 const Products = () => {
     // const { isLoading, error, data, refetch } = useQuery('available', () =>
-    //     fetch(`http://localhost:4000/product`).then(res =>
+    //     fetch(`https://asd-industrial.herokuapp.com/product`).then(res =>
     //         res.json()
     //     )
     // )
@@ -13,7 +13,7 @@ const Products = () => {
     const [loading, isLoading] = useState(false);
     useEffect( () => {
         isLoading(true)
-        fetch(`http://localhost:4000/product`)
+        fetch(`https://asd-industrial.herokuapp.com/product`)
         .then(res => res.json())
         .then(data => setService(data))
         isLoading(false);

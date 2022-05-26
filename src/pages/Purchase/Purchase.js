@@ -15,7 +15,7 @@ const Purchase = () => {
 
 
     const { isLoading, error, data: product, refetch } = useQuery('available', () =>
-        fetch(`http://localhost:4000/product/${productId}`).then(res =>
+        fetch(`https://asd-industrial.herokuapp.com/product/${productId}`).then(res =>
             res.json()
         )
     )
@@ -35,7 +35,7 @@ const Purchase = () => {
         data.img = img;
         data.singleItemPrice = price;
 
-        const addToCardUrl = `http://localhost:4000/cardItem`;
+        const addToCardUrl = `https://asd-industrial.herokuapp.com/cardItem`;
 
 
         fetch(addToCardUrl, {
@@ -55,7 +55,7 @@ const Purchase = () => {
         const updatedProductQuntity = { availableQuantity: availableQuantity - data.orderQuantity };
         // console.log(updatedProductQuntity);
 
-        const url = `http://localhost:4000/product/${productId}`
+        const url = `https://asd-industrial.herokuapp.com/product/${productId}`
         fetch(url, {
             method: 'PUT',
             headers: {

@@ -11,7 +11,7 @@ const Payment = () => {
     const { id } = useParams();
 
     const { isLoading, error, data: product, refetch } = useQuery('available', () =>
-        fetch(`http://localhost:4000/cardItem/${id}`).then(res =>
+        fetch(`https://asd-industrial.herokuapp.com/cardItem/${id}`).then(res =>
             res.json()
         )
     )

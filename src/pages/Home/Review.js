@@ -6,7 +6,7 @@ const Review = () => {
     const [loading, isLoading] = useState(false);
     useEffect(() => {
         isLoading(true)
-        fetch(`http://localhost:4000/reviews`)
+        fetch(`https://asd-industrial.herokuapp.com/reviews`)
             .then(res => res.json())
             .then(data => {
                 const slicedReview = data.slice(-3);

@@ -11,7 +11,7 @@ const MyProfile = () => {
     const onSubmit = data => {
         // console.log(user)
         data.avatar = user?.photoURL
-        const url = `http://localhost:4000/add-user/${user?.email}`;
+        const url = `https://asd-industrial.herokuapp.com/add-user/${user?.email}`;
         fetch(url, {
             method: 'PUT',
             headers: {

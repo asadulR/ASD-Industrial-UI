@@ -13,7 +13,7 @@ const CheckoutForm = ({product}) => {
     const {singleItemPrice, orderQuantity} = product;
     const price = singleItemPrice * orderQuantity;
     useEffect( () => {
-        fetch(`http://localhost:4000/create-payment-intent`,{
+        fetch(`https://asd-industrial.herokuapp.com/create-payment-intent`,{
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
