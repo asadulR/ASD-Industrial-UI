@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
-import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
+import { useAuthState, useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import auth from '../../components/Auth/firebase.init';
 import Loading from '../../components/Loading/Loading';
 import toast, { Toaster } from 'react-hot-toast';
@@ -24,6 +24,28 @@ const Signup = () => {
     };
     const navigate = useNavigate();
     let signInErrorMessage;
+    const [logedInUser] = useAuthState(auth);
+
+    //  creating JWT token for the user
+    useEffect(() => {
+        if (user) {
+            const url = 'http://localhost:4000/login';
+            fetch(url, {
+                method: 'POST',
+                body: JSON.stringify({
+                    email: logedInUser?.email
+                }),
+                headers: {
+                    'Content-type': 'application/json; charset=UTF-8',
+                },
+            })
+                .then((response) => response.json())
+                .then((data) => {
+                    localStorage.setItem('accessToken', data.token);
+                    console.log(logedInUser?.email)
+                });
+        }
+    }, [user, logedInUser]);
 
     useEffect(() => {
         if (user) {

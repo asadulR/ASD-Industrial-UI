@@ -7,8 +7,8 @@ const OrderRow = ({ order, setOrders, orders }) => {
 
     //  handle card item delete
     const handleDelete = (_id) => {
-        //  deleting inventory from allitems collection
-        //  deleting order from card collection
+        const proceed = window.confirm('Want to cancel your order?')
+
         const myItemDeleteUrl = `http://localhost:4000/delete-myitems/${_id}`;
         // console.log(myItemDeleteUrl)
         fetch(myItemDeleteUrl, {
@@ -49,7 +49,7 @@ const OrderRow = ({ order, setOrders, orders }) => {
                     <>
                         <Link to={`/dashboard/payment/${_id}`} className='btn btn-success text-white btn-sm  mr-3'>Payment</Link>
                         {/* <button for="my-modal-6"  className='btn btn-error btn-sm'>Delete</button> */}
-                        <label for="my-modal-6" class="btn  btn-error btn-sm modal-button">Delete</label>
+                        <label onClick={() => handleDelete(_id)} class="btn  btn-error btn-sm modal-button">Delete</label>
                     </>
                 }
                 {
@@ -57,19 +57,6 @@ const OrderRow = ({ order, setOrders, orders }) => {
                 }
             </td>
             <Toaster />
-
-
-            {/* <input type="checkbox" id="my-modal-6" class="modal-toggle" /> */}
-            <div class="modal modal-bottom sm:modal-middle">
-                <div class="modal-box">
-                    <label for="my-modal-6" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-                    <h3 class="font-bold text-lg">Are you sure you want to cancel your order?</h3>
-                    <p class="py-4">You are canceling {productName} from your order list. And you haven't paid for it yet.</p>
-                    <div class="modal-action">
-                        <label onClick={() => handleDelete(_id)} for="my-modal-6" class="btn">Yay!</label>
-                    </div>
-                </div>
-            </div>
         </tr>
     );
 };

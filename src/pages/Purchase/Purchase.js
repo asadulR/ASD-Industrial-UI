@@ -41,7 +41,7 @@ const Purchase = () => {
         fetch(addToCardUrl, {
             method: 'POST',
             headers: {
-                // 'authoraization': `${user.email} ${localStorage.getItem("accessToken")}`,
+                'authoraization': `${user.email} ${localStorage.getItem("accessToken")}`,
                 'content-type': 'application/json'
             },
             body: JSON.stringify(data)
@@ -110,11 +110,6 @@ const Purchase = () => {
                     <div className="card-body">
                         <h1 className=' text-2xl text-center font-bold text-primary mb-6'>Provide some information</h1>
                         <form onSubmit={handleSubmit(onSubmit)}>
-                            <div className="form-control">
-                                <input type="email" value={user?.email} readOnly className="input input-bordered mb-5"
-                                    {...register("buyerEmail")}
-                                />
-                            </div>
                             <div className="form-control">
                                 <input type="email" value={user?.email} readOnly className="input input-bordered mb-5"
                                     {...register("buyerEmail")}

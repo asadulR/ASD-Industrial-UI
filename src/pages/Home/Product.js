@@ -19,7 +19,7 @@ const Product = ({ product, refetch }) => {
                 <h2 className=" text-xl text-base-100 mb-2 font-bold">{name}</h2>
                 <small className='flex justify-evenly text-white'><span>Quantity: <span className='text-secondary font-bold'>{availableQuantity}</span></span> <span>Price: <span className='text-secondary font-bold'>${price}</span></span> <span>MOQ: <span className='text-secondary font-bold'>{minOrderQ}</span></span></small>
                 <p className='text-base-100 font-normal text-left'>{description}</p>
-                <button onClick={() => navigateToPurchase(_id)} className='btn btn-secondary mt-5'>Purchase Now</button>
+                <button onClick={() => navigateToPurchase(_id)} className='btn btn-secondary mt-5' disabled={availableQuantity < minOrderQ}>Purchase Now</button>
             </div>
         </div>
     );

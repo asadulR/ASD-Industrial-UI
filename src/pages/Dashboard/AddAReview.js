@@ -30,7 +30,7 @@ const AddAReview = () => {
         fetch(reviewUrl, {
             method: 'POST',
             headers: {
-                // 'authoraization': `${user.email} ${localStorage.getItem("accessToken")}`,
+                'authoraization': `${user.email} ${localStorage.getItem("accessToken")}`,
                 'content-type': 'application/json'
             },
             body: JSON.stringify(data)

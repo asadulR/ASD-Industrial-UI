@@ -1,9 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
-import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useAuthState, useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../components/Auth/firebase.init';
 import Loading from '../../components/Loading/Loading';
+import toast, { Toaster } from 'react-hot-toast';
 
 const Login = () => {
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
@@ -14,17 +15,42 @@ const Login = () => {
         loading,
         error,
     ] = useSignInWithEmailAndPassword(auth);
+    const [sendPasswordResetEmail, sending, passReseterror] = useSendPasswordResetEmail(auth);
+    const [email, setEmail] = useState('');
     const onSubmit = data => {
         // console.log(data)
         signInWithEmailAndPassword(data.email, data.password)
-
         reset();
     };
-
+    let resetError;
     let signInErrorMessage;
     const navigate = useNavigate();
     const location = useLocation();
     let from = location.state?.from?.pathname || '/';
+
+    const [logedinUser] = useAuthState(auth);
+    useEffect(() => {
+        if (user || guser) {
+            //  generating a tocken for the backend 
+            const url = 'http://localhost:4000/login';
+            fetch(url, {
+                method: 'POST',
+                body: JSON.stringify({
+                    email: logedinUser?.email
+                }),
+                headers: {
+                    'Content-type': 'application/json; charset=UTF-8',
+                },
+            })
+                .then((response) => response.json())
+                .then((data) => {
+                    localStorage.setItem('accessToken', data.token);
+                });
+
+
+            console.log(logedinUser?.email)
+        }
+    }, [logedinUser, guser, user])
 
     useEffect(() => {
         if (user || guser) {
@@ -33,12 +59,27 @@ const Login = () => {
         }
     }, [from, navigate, guser, user])
 
-    if (loading || gloading) {
+    if (loading || gloading || sending) {
         return <Loading />
     }
 
-    if (error || gerror) {
+    if (error || gerror || passReseterror) {
         signInErrorMessage = <p className='text-red-700 m-0'><small>{error?.message || gerror?.message}</small></p>
+    }
+
+
+
+
+    const resetPassword = async () => {
+        resetError = ''
+        if (email) {
+            await sendPasswordResetEmail(email);
+            toast.success('Sent email');
+        }
+        else {
+            resetError = <p className='text-danger'>Error: Please provide your email</p>
+            toast.error('please enter your email address');
+        }
     }
     return (
         <section className='flex bg-accent px-2 justify-center items-center'>
@@ -58,6 +99,7 @@ const Login = () => {
                                         message: 'Provide a valid Email'
                                     }
                                 })}
+                                onChange={(e) => setEmail(e.target.value)}
                             />
                             <label className="label">
                                 {errors.email?.type === 'required' && <span className="label-text-alt text-red-700">{errors.email.message}</span>}
@@ -82,10 +124,11 @@ const Login = () => {
                                 {errors.password?.type === 'minLength' && <span className="label-text-alt text-red-700">{errors.password.message}</span>}
                             </label>
                             <label className="label">
-                                <Link to='/signup' className="label-text-alt link link-hover">New here? Signup</Link>
-                                <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
+                                <Link to='/signup' className="label-text-alt link mr-5 link-hover">New here? Signup</Link>
+                                <p onClick={resetPassword} className="label-text-alt link link-hover">Forgot password?</p>
                             </label>
                         </div>
+                        {resetError}
                         <div className="form-control mt-6">
                             <input className='btn btn-primary' type="submit" value='Login' />
                         </div>
@@ -95,6 +138,7 @@ const Login = () => {
                     <button onClick={() => signInWithGoogle()} className='btn  btn-primary'>Continue with google</button>
                 </div>
             </div>
+            <Toaster />
         </section>
     );
 };

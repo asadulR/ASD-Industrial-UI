@@ -14,7 +14,7 @@ const Review = () => {
             })
         isLoading(false);
     }, [])
-    console.log(reviews)
+    // console.log(reviews)
     if (loading) return <Loading />
     return (
         <section className='my-20 md:my-32'>

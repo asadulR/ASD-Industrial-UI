@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaRegHandPointLeft, FaShoppingCart, FaSmileBeam, FaUserEdit } from "react-icons/fa";
+import { FaAlignRight, FaShoppingCart, FaSmileBeam, FaUserEdit } from "react-icons/fa";
 import { Link, Outlet } from 'react-router-dom';
 import Footer from '../../components/Footer';
 
@@ -9,7 +9,7 @@ const Dashboard = () => {
             <div className="drawer drawer-mobile">
                 <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
                 <div className="drawer-content my-6 px-4">
-                    <div className='flex justify-end'><label for="my-drawer-2" className=' drawer-button text-right text-primary lg:hidden text-3xl cursor-pointer'><FaRegHandPointLeft /></label></div>
+                    <div className='flex justify-end'><label for="my-drawer-2" className=' drawer-button text-right text-primary lg:hidden text-xl cursor-pointer'><FaAlignRight /></label></div>
                     {/* <!-- Page content here --> */}
                     <Outlet />
                 </div>
