@@ -1,7 +1,7 @@
 import React from 'react';
 import bg from '../../assets/Images/bg.jpg';
 
-import { FaTools, FaCloudSun, FaGasPump,FaRegGem } from "react-icons/fa";
+import { FaTools, FaCloudSun, FaGasPump, FaRegGem } from "react-icons/fa";
 const WeProvide = () => {
     return (
         <section className='py-10 md:py-28' style={{
@@ -11,11 +11,12 @@ const WeProvide = () => {
             backgroundPosition: 'center',
 
         }}>
-            <h2 className=' text-3xl text-center md:text-5xl font-bold max-w-xl mx-auto text-base-100 mb-20' style={{fontFamily: 'Courgette,cursive'}}>We Manufacture Best Machine
+            <h2 className=' text-3xl text-center md:text-5xl font-bold max-w-xl mx-auto text-base-100 mb-20' style={{ fontFamily: 'Courgette,cursive' }}>We Manufacture Best Machine
                 For Industries</h2>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 px-2'>
                 <div className="card shadow-xl bg-primary transition ease-in-out delay-100 hover:-translate-y-2 hover:bg-info duration-500">
-                    <div className="card-body text-center">
+                    <div data-aos="zoom-in"
+                        data-aos-duration="1500" className="card-body text-center">
 
                         <div className="avatar">
                             <div className="w-24 mx-auto mb-6 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
@@ -28,8 +29,9 @@ const WeProvide = () => {
                     </div>
                 </div>
                 <div className="card shadow-xl bg-primary transition ease-in-out delay-100 hover:-translate-y-2 hover:bg-info duration-500">
-                    <div className="card-body text-center">
-                    <div className="avatar">
+                    <div data-aos="zoom-in"
+                        data-aos-duration="1500" className="card-body text-center">
+                        <div className="avatar">
                             <div className="w-24 mx-auto mb-6 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
                                 <FaCloudSun className=' text-6xl mx-auto text-accent mt-4' />
                             </div>
@@ -39,8 +41,9 @@ const WeProvide = () => {
                     </div>
                 </div>
                 <div className="card shadow-xl bg-primary transition ease-in-out delay-100 hover:-translate-y-2 hover:bg-info duration-500">
-                    <div className="card-body text-center">
-                    <div className="avatar">
+                    <div data-aos="zoom-in"
+                        data-aos-duration="1500" className="card-body text-center">
+                        <div className="avatar">
                             <div className="w-24 mx-auto mb-6 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
                                 <FaGasPump className=' text-6xl mx-auto text-red-500 mt-4' />
                             </div>
@@ -50,8 +53,9 @@ const WeProvide = () => {
                     </div>
                 </div>
                 <div className="card shadow-xl bg-primary transition ease-in-out delay-100 hover:-translate-y-2 hover:bg-info duration-500">
-                    <div className="card-body text-center">
-                    <div className="avatar">
+                    <div data-aos="zoom-in"
+                        data-aos-duration="1500" className="card-body text-center">
+                        <div className="avatar">
                             <div className="w-24 mx-auto mb-6 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
                                 <FaRegGem className=' text-6xl mx-auto text-success mt-4' />
                             </div>

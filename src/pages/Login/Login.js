@@ -85,7 +85,8 @@ const Login = () => {
     return (
         <section className='flex bg-accent px-2 justify-center items-center'>
             <PageTitle title="Login"></PageTitle>
-            <div className="card flex-shrink-0 mt-20 md:mt-28 mb-4 w-full max-w-sm shadow-2xl bg-base-100 ">
+            <div data-aos="zoom-in"
+                data-aos-duration="1500" className="card flex-shrink-0 mt-20 md:mt-28 mb-4 w-full max-w-sm shadow-2xl bg-base-100 ">
                 <div className="card-body">
                     <h1 className=' text-2xl text-center font-bold text-primary mb-6'>LOGIN</h1>
                     <form onSubmit={handleSubmit(onSubmit)}>
