@@ -7,6 +7,7 @@ import AddAReview from './pages/Dashboard/AddAReview';
 import Dashboard from './pages/Dashboard/Dashboard';
 import MyOrder from './pages/Dashboard/MyOrder';
 import MyProfile from './pages/Dashboard/MyProfile';
+import Payment from './pages/Dashboard/Payment';
 import Home from './pages/Home/Home';
 import Login from './pages/Login/Login';
 import Signup from './pages/Login/Signup';
@@ -34,6 +35,7 @@ function App() {
           <Route index element={<MyOrder />}></Route>
           <Route path='add-review' element={<AddAReview />}></Route>
           <Route path='my-profile' element={<MyProfile />}></Route>
+          <Route path='payment/:id' element={<Payment />}></Route>
         </Route>
         <Route path='/portfolio' element={<Portfolio />}></Route>
         <Route path='/blogs' element={<Blogs />}></Route>

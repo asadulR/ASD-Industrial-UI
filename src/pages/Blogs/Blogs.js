@@ -1,4 +1,5 @@
 import React from 'react';
+import Footer from '../../components/Footer';
 
 const Blogs = () => {
     return (
@@ -50,7 +51,7 @@ const Blogs = () => {
                 <div class="collapse rounded-lg my-2">
                     <input type="checkbox" class="peer" />
                     <div class="collapse-title bg-primary text-base-100 font-semibold ">
-                    Why you do not set the state directly in React?
+                        Why you do not set the state directly in React?
                     </div>
                     <div class="collapse-content bg-slate-700 text-primary-content">
                         <p>One should never update the state directly because of the following reasons:
@@ -63,13 +64,14 @@ const Blogs = () => {
                 <div class="collapse rounded-lg my-2">
                     <input type="checkbox" class="peer" />
                     <div class="collapse-title bg-primary text-base-100 font-semibold ">
-                    What is a unit test? Why should write unit tests??
+                        What is a unit test? Why should write unit tests??
                     </div>
                     <div class="collapse-content bg-slate-700 text-primary-content">
                         <p>The main objective of unit testing is to isolate written code to test and determine if it works as intended. Unit testing is an important step in the development process, because if done correctly, it can help detect early flaws in code which may be more difficult to find in later testing stages.</p>
                     </div>
                 </div>
             </div>
+            <Footer />
         </section>
     );
 };

@@ -1,5 +1,6 @@
 import React from 'react';
 import toast, { Toaster } from 'react-hot-toast';
+import { Link } from 'react-router-dom';
 
 const OrderRow = ({ order, setOrders, orders }) => {
     const { _id, orderQuantity, status, singleItemPrice, productName, img } = order;
@@ -46,7 +47,7 @@ const OrderRow = ({ order, setOrders, orders }) => {
                 {
                     order?.status === 'Pending' &&
                     <>
-                        <button className='btn btn-success text-white btn-sm  mr-3'>Payment</button>
+                        <Link to={`/dashboard/payment/${_id}`} className='btn btn-success text-white btn-sm  mr-3'>Payment</Link>
                         {/* <button for="my-modal-6"  className='btn btn-error btn-sm'>Delete</button> */}
                         <label for="my-modal-6" class="btn  btn-error btn-sm modal-button">Delete</label>
                     </>
