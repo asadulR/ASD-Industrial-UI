@@ -7,6 +7,7 @@ import { useParams } from 'react-router-dom';
 import auth from '../../components/Auth/firebase.init';
 import Footer from '../../components/Footer';
 import Loading from '../../components/Loading/Loading';
+import PageTitle from '../../components/PageTitle/PageTitle';
 
 const Purchase = () => {
     const [user] = useAuthState(auth)
@@ -88,6 +89,8 @@ const Purchase = () => {
 
     return (
         <section className=' bg-accent pt-20 md:pt-32 container mx-auto'>
+            <PageTitle title="Purchase"></PageTitle>
+
             <h2 className='text-2xl md:text-4xl font-extrabold text-primary my-10 text-center'>Add <span className='text-secondary'>{name}</span> to <br /> your order list</h2>
             <div className="grid px-3 grid-cols-1 md:grid-cols-2 items-center gap-6">
                 <div><img className='rounded-lg' src={img} alt="" /></div>

@@ -37,9 +37,9 @@ const MyProfile = () => {
             <h2 className='text-primary text-xl md:text-3xl font-extrabold text-center'>Update your Informaton</h2>
 
 
-            <div class="card max-w-xl m-auto bg-success shadow-xl mt:12 md:mt-20">
+            <div className="card max-w-xl m-auto bg-success shadow-xl mt:12 md:mt-20">
                 <figure><img className='rounded-lg mt-5' src={user?.photoURL} alt="Shoes" /></figure>
-                <div class="card-body">
+                <div className="card-body">
                     <h3 className='text-white text-lg'>Name: {user?.displayName}</h3>
                     <p className='text-white text-lg'>Email: {user?.email}</p>
                     {

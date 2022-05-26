@@ -41,8 +41,8 @@ const Payment = () => {
 
                 </div>
             </div>
-            <div class="card max-w-md mx-auto mt-10 bg-accent shadow-xl">
-                <div class="card-body">
+            <div className="card max-w-md mx-auto mt-10 bg-accent shadow-xl">
+                <div className="card-body">
 
                     <p className='text-lg font-bold text-primary mb-6'>Pay with your card</p>
 

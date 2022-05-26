@@ -97,10 +97,10 @@ const AddAReview = () => {
                                 </label>
                             </div>
                             <div className="form-control">
-                                <input type="range" min="1" max="5" defaultValue="2" class="range range-primary" step=".5"
+                                <input type="range" min="1" max="5" defaultValue="2" className="range range-primary" step=".5"
                                     {...register("ratings")}
                                 />
-                                <div class="w-full flex justify-between text-xs px-2 mb-3">
+                                <div className="w-full flex justify-between text-xs px-2 mb-3">
                                     <span>1 Star</span>
                                     <span>2 Star</span>
                                     <span>3 Star</span>
@@ -109,7 +109,7 @@ const AddAReview = () => {
                                 </div>
                             </div>
                             <div className="form-control">
-                                <textarea class="textarea textarea-bordered" placeholder="Say something ..."
+                                <textarea className="textarea textarea-bordered" placeholder="Say something ..."
                                     {...register("review", {
                                         required: {
                                             value: true,

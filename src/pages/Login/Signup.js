@@ -5,6 +5,7 @@ import { useAuthState, useCreateUserWithEmailAndPassword, useUpdateProfile } fro
 import auth from '../../components/Auth/firebase.init';
 import Loading from '../../components/Loading/Loading';
 import toast, { Toaster } from 'react-hot-toast';
+import PageTitle from '../../components/PageTitle/PageTitle';
 
 
 const Signup = () => {
@@ -62,6 +63,8 @@ const Signup = () => {
     }
     return (
         <section className='bg-accent h-screen'>
+            <PageTitle title="Signup"></PageTitle>
+
             <div className='flex bg-accent px-2 justify-center items-center'>
                 <div className="card flex-shrink-0 mt-20 md:mt-28 mb-4 w-full max-w-sm shadow-2xl bg-base-100 ">
                     <div className="card-body">

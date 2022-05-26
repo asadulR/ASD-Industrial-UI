@@ -25,14 +25,14 @@ const Review = () => {
 
             <div className='grid grid-cols-1 my-10 md:grid-cols-3 px-2 gap-6'>
                 {
-                    reviews?.map(review => <div key={review?._id} class="card bg-secondary text-white hover:bg-success transition ease-in-out duration-1000">
-                        <div class="card-body text-center">
-                            <div class="avatar justify-center">
-                                <div class="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                    reviews?.map(review => <div key={review?._id} className="card bg-secondary text-white hover:bg-success transition ease-in-out duration-1000">
+                        <div className="card-body text-center">
+                            <div className="avatar justify-center">
+                                <div className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
                                     <img src={review?.avatar} alt='Avatar' />
                                 </div>
                             </div>
-                            <h2 class="font-bold">{review?.name}</h2>
+                            <h2 className="font-bold">{review?.name}</h2>
                             <small className=' text-left items-start m-0'>{review?.profession}</small>
                             <small className='text-left '>Ratings: {review?.ratings}</small>
                             <p className='text-left'>{review?.review}</p>

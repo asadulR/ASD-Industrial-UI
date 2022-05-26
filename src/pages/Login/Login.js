@@ -5,6 +5,7 @@ import { useAuthState, useSendPasswordResetEmail, useSignInWithEmailAndPassword,
 import auth from '../../components/Auth/firebase.init';
 import Loading from '../../components/Loading/Loading';
 import toast, { Toaster } from 'react-hot-toast';
+import PageTitle from '../../components/PageTitle/PageTitle';
 
 const Login = () => {
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
@@ -83,6 +84,7 @@ const Login = () => {
     }
     return (
         <section className='flex bg-accent px-2 justify-center items-center'>
+            <PageTitle title="Login"></PageTitle>
             <div className="card flex-shrink-0 mt-20 md:mt-28 mb-4 w-full max-w-sm shadow-2xl bg-base-100 ">
                 <div className="card-body">
                     <h1 className=' text-2xl text-center font-bold text-primary mb-6'>LOGIN</h1>

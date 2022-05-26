@@ -48,8 +48,8 @@ const OrderRow = ({ order, setOrders, orders }) => {
                     order?.status === 'Pending' &&
                     <>
                         <Link to={`/dashboard/payment/${_id}`} className='btn btn-success text-white btn-sm  mr-3'>Payment</Link>
-                        {/* <button for="my-modal-6"  className='btn btn-error btn-sm'>Delete</button> */}
-                        <label onClick={() => handleDelete(_id)} class="btn  btn-error btn-sm modal-button">Delete</label>
+                        {/* <button htmlFor="my-modal-6"  className='btn btn-error btn-sm'>Delete</button> */}
+                        <label onClick={() => handleDelete(_id)} className="btn  btn-error btn-sm modal-button">Delete</label>
                     </>
                 }
                 {

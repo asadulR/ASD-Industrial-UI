@@ -17,13 +17,13 @@ const BusinessSummary = () => {
                     <h2 className='text-white text-xl md:text-4xl font-extrabold mb-6'>Get a solution for all <br /> your Industries needs.</h2>
 
                     <span className='mb-5 text-white'>Production 80%</span>
-                    <progress class="progress progress-success " value="80" max="100"></progress>
+                    <progress className="progress progress-success " value="80" max="100"></progress>
                     <span className='mb-5 text-white'>International 70%</span>
-                    <progress class="progress progress-success " value="70" max="100"></progress>
+                    <progress className="progress progress-success " value="70" max="100"></progress>
                     <span className='mb-5 text-white'>Customer Satisfaction 90%</span>
-                    <progress class="progress progress-success " value="90" max="100"></progress>
+                    <progress className="progress progress-success " value="90" max="100"></progress>
                     <span className='mb-5 text-white'>Utilization Rate 60%</span>
-                    <progress class="progress progress-success " value="60" max="100"></progress>
+                    <progress className="progress progress-success " value="60" max="100"></progress>
                 </div>
                 <div className='bg-primary px-4 py-8 md:py-24'>
                     <h2 className='text-xl md:text-4xl text-secondary font-bold'>We can work with Big <br /> & Small Clients</h2>
